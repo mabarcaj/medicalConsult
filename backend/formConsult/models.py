@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from .validators import validate_age, validate_rut
+from .validators import validate_age, validate_rut, validate_doctor_availability
 
 
 class SexClass(models.TextChoices):
@@ -26,6 +26,7 @@ class Horario(models.Model):
     # fecha = models.DateField('fecha')
     # hora = models.TimeField('hora')
     disponibilidad = models.DateTimeField('disponibilidad')
+    estaDisponible = models.BooleanField(default=True)
 
     def __str__(self):
         return '{}'.format(self.disponibilidad)

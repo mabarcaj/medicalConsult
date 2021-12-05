@@ -68,3 +68,9 @@ def validate_rut(value):
     if not isValid(value):
         raise ValidationError(RUT_ERROR_MSG)
     return value
+
+
+# Validate Doctor Availability
+def validate_doctor_availability(value):
+    print(value)
+    return value
