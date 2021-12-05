@@ -32,7 +32,6 @@ class Horario(models.Model):
         return '{}'.format(self.disponibilidad)
 
 
-
 class Consulta(models.Model):
     # Nombres
     primer_nombre = models.CharField(max_length=50)
