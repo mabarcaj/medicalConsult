@@ -12,24 +12,39 @@ class SexClass(models.TextChoices):
 class Doctor(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=60)
+    sexo = models.CharField(max_length=1, choices=SexClass.choices)
     especialidad = models.CharField(max_length=70)
-    # horarios = ArrayField(models.DateTimeField()) # convert later
-    horario_disponible = models.DateTimeField('horario disponible')
+
+    def __str__(self):
+        if self.sexo == 'F':
+            return 'Dra. {} {}'.format(self.nombre, self.apellido)
+        return 'Dr. {} {}'.format(self.nombre, self.apellido)
+    
+
+class Horario(models.Model):
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    # fecha = models.DateField('fecha')
+    # hora = models.TimeField('hora')
+    disponibilidad = models.DateTimeField('disponibilidad')
+
+    def __str__(self):
+        return '{}'.format(self.disponibilidad)
+
 
 
 class Consulta(models.Model):
     # Nombres
-    primer_nombre = models.CharField(max_length=50, default='A')
-    segundo_nombre = models.CharField(max_length=50, default='B')
+    primer_nombre = models.CharField(max_length=50)
+    segundo_nombre = models.CharField(max_length=50)
 
     # Apellido Paterno
-    apellido_paterno = models.CharField(max_length=50, default='C')
+    apellido_paterno = models.CharField(max_length=50)
 
     # Apellido Materno
-    apellido_materno = models.CharField(max_length=50, default='D')
+    apellido_materno = models.CharField(max_length=50)
 
     # Rut
-    rut = models.CharField(max_length=12, validators=[validate_rut], default="12345678-9")
+    rut = models.CharField(max_length=12, validators=[validate_rut])
 
     # Edad
     edad = models.IntegerField(validators=[validate_age])
@@ -38,11 +53,10 @@ class Consulta(models.Model):
     sexo = models.CharField(max_length=1, choices=SexClass.choices)
 
     # Nombre Medico
-    # nombre_medico = models.ForeignKey(Doctor, on_delete=models.CASCADE, default= 1)
-    nombr_medico = models.CharField(max_length=50, default='John Doe')
+    nombre_medico = models.ForeignKey(Doctor, on_delete=models.CASCADE)
 
     # Fecha y Hora Consulta
-    fecha_consulta = models.DateTimeField('fecha consulta') # maybe this will be a class later on
+    fecha_consulta = models.OneToOneField(Horario, on_delete=models.CASCADE)
 
     # Correo
     email = models.EmailField(max_length=200)  # restrict to specefic domains?
