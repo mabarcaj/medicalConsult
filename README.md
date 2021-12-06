@@ -37,4 +37,11 @@ Tomando en consideración las tecnologías disponibles, se ha decidido hacer uso
 
 ### Backend
 
+- Primero tener instalado pipenv. Para ello bastará utilizar el comando 'pip install pipenv'
+- Luego dentro de la carpeta raíz del proyecto (en donde se encuentra el archivo pipfile), utilizar el comando 'pipenv install'. Este comando bajará todas las librerías necesarias para el proyecto.
+- Para ejecutar el servidor de backend, habrá que moverse a la ubicación de manage.py, ubicada dentro de la carpeta backend (debiera ser backend/manage.py). Se ejecuta el comando 'python manage.py runserver' para hacer funcionar el servidor
+  
 ### Frontend
+- Debemos tener instalado Node primero que todo. Lo podrán encontrar aquí: https://nodejs.org/es/
+- Luego bastará utilizar el comando npm install, para comenzar a bajar las librerías necesarias
+- Posteriormente, bastará utilizar el comando 'yarn start' en la consola para acceder al servidor de pruebas. Para deployarlo bastará el comando 'yarn build'
