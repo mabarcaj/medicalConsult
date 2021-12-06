@@ -24,7 +24,7 @@ export function App() {
 		<Fragment>
 			<Header />
 			<div className="container-fluid mt-5">
-				{/*<Form }doctors={doctors} /> */}
+				{/*<Form doctors={doctors} />*/}
 				<BadForm />
 			</div>
 		</Fragment>
