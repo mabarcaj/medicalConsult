@@ -1,7 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
-export  function Form({ state }) {
+export  function Form() {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -10,6 +11,25 @@ export  function Form({ state }) {
         console.log(data)
         e.target.reset() // no funca parece
     }
+
+    const state = {
+        details: []
+    }
+
+    useEffect(() => {
+        let data;
+        axios
+            .get("http://localhost:8000/api/doctor/")
+            .then((res) => {
+                data = res.data;
+                console.log(data)
+                this.setState({
+                    details: data
+                });
+            }).catch(err => console.log(err))
+    })
+
+
     return (
         <Fragment>
             <h1>Solicitar Consulta</h1>
@@ -155,13 +175,9 @@ export  function Form({ state }) {
                     <span className="text-danger text-small d-block mb-2">
                         {errors?.nombreMedico?.message}
                     </span>
-                    <ul>
-                        {state.details.map((content) => (
-                            <li>
-                                { content }
-                            </li>
-                        ))}
-                    </ul>
+                    { state.details.map((val) => (
+                        <h1>v</h1>
+                    )) }
 
 
                     <label className="pt-2">Fecha para Solicitud</label>
