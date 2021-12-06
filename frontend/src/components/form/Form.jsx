@@ -3,8 +3,9 @@ import { PrimerNombre } from "./PrimerNombre";
 import { SegundoNombre } from "./SegundoNombre";
 import { ApellidoPaterno } from "./ApellidoPaterno";
 import { ApellidoMaterno } from "./ApellidoMaterno";
+import { DoctorSelect } from "./NombreDoctor/DoctorSelect";
 
-export function Form() {
+export function Form({ doctors }) {
 	return (
 		<Fragment>
 			<div className="col-sm-10 offset-sm-1 text-center">
@@ -14,6 +15,7 @@ export function Form() {
 					<SegundoNombre />
 					<ApellidoPaterno />
 					<ApellidoMaterno />
+					<DoctorSelect doctors={doctors} />
 				</form>
 			</div>
 		</Fragment>
