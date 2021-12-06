@@ -1,0 +1,20 @@
+{
+  "name": "medicalconsult",
+  "version": "1.0.0",
+  "description": "Se ha planteado el desarrollo de un sitio web que contenga un formulario para agendar consultas médicas. Esto con el fin de dar\r a los postulantes de la Unidad de Asistencia Técnica un acercamiento de las habilidades técnicas requeridas para cumplir con las labores propias que se brindan en la unidad. Esta actividad está con mayor detalle en el archivo 'ejercicio_web_consultora.pdf'.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mabarcaj/medicalConsult.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mabarcaj/medicalConsult/issues"
+  },
+  "homepage": "https://github.com/mabarcaj/medicalConsult#readme"
+}

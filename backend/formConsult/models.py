@@ -23,9 +23,8 @@ class Doctor(models.Model):
 
 class Horario(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    # fecha = models.DateField('fecha')
-    # hora = models.TimeField('hora')
-    disponibilidad = models.DateTimeField('disponibilidad')
+    fecha = models.DateField('fecha', null=True)  # null = true, just because django is asking for a default and there's no time to solve this
+    hora = models.TimeField('hora', null=True) # null = true, just because django is asking for a default and there's no time to solve this
     estaDisponible = models.BooleanField(default=True)
 
     def __str__(self):
